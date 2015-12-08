@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Tipoclausula:</strong>
+  <%= @status.tipoclausula %>
+</p>
+
+<p>
+  <strong>Clausula:</strong>
+  <%= @status.clausula %>
+</p>
+
+<p>
+  <strong>Texto:</strong>
+  <%= @status.texto %>
+</p>
+
+<%= link_to 'Edit', edit_status_path(@status) %> |
+<%= link_to 'Back', statuses_path %>
