@@ -1,31 +1,27 @@
-<p id="notice"><%= notice %></p>
+<div class="pague-header">
+  <h1>Todas las clausulas</h1>
 
-<h1>Listing Statuses</h1>
+</div>
 
-<table>
-  <thead>
-    <tr>
-      <th>Tipoclausula</th>
-      <th>Clausula</th>
-      <th>Texto</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
+<%= link_to "Crear una nueva clausula", new_status_path, class: "btn btn-info" %>
 
-  <tbody>
-    <% @statuses.each do |status| %>
-      <tr>
-        <td><%= status.tipoclausula %></td>
-        <td><%= status.clausula %></td>
-        <td><%= status.texto %></td>
-        <td><%= link_to 'Show', status %></td>
-        <td><%= link_to 'Edit', edit_status_path(status) %></td>
-        <td><%= link_to 'Destroy', status, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+<% @statuses.each do |status| %>
 
-<br>
+ <div class="status">
+  <strong> Tipo Clausula: <%= status.tipoclausula  %></strong>
+  <br>
+  <label> Clausula: <%= status.clausula %></label>
+  <p> Descripcion: <%= status.texto %></p>
+  <div>
+    <%= link_to "Hace "+ time_ago_in_words(status.created_at), status %>
+    <span class="admin">
+      <%= link_to "Editar", edit_status_path(status) %>
+      <%= link_to "Borrar", status, method: :delete, data: { confirm: "Estas seguro de borrar la clausula"}%>
+    </span>
+  </div>
+ </div>
 
-<%= link_to 'New Status', new_status_path %>
+
+
+
+  <% end %>
